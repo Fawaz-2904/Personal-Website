@@ -1,0 +1,12 @@
+.blog-container {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .blog-image {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+    margin: 0 auto 15px;
+  }

@@ -1,0 +1,321 @@
+.project {
+    margin-top: -30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Consistent spacing between cards */
+    justify-content: center; /* Centers cards evenly; better than space-between for wrapped layouts */
+    padding: 20px; /* Adds breathing room around the container */
+    max-width: 1200px; /* Prevents cards from spreading too wide on large screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .project h2{
+   opacity: 0;   
+   animation: zoomIn 1s ease forwards;
+   animation-delay: .2s;
+  }
+
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  } 
+
+  .skills h2{
+    opacity: 0;   
+    animation: zoomIn 1s ease forwards;
+    animation-delay: .2s;
+   }
+ 
+   @keyframes zoomIn {
+     0% {
+       transform: scale(0);
+       opacity: 0;
+     }
+     100% {
+       transform: scale(1);
+       opacity: 1;
+     }
+   } 
+  
+  .project_card {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); /* Adds a frosted glass effect for modernity (optional, supported in modern browsers) */
+    width: 300px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes content evenly: img at top, text/button at bottom */
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px; /* Slightly larger radius for softer look */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Smooth hovers */
+    opacity: 0; /* Start invisible for animation */
+    animation: slideTop 0.8s ease forwards; /* Staggered entrance */
+    animation-delay: calc(0.2s * var(--i)); /* Delay based on --i (set in JSX) */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
+    position: relative; /* Helps with z-index on hover if needed */
+    overflow: hidden; /* Ensures rounded corners clip image/button */
+  }
+  
+  .project_card::before { /* Optional: Subtle gradient overlay for depth */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 238, 255, 0.1), rgba(0, 0, 0, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .project_card:hover {
+    transform: translateY(-20px); /* Lifts card slightly (reduced from -50px to avoid overlap; adjust as needed) */
+    box-shadow: 0 15px 40px rgba(0, 238, 255, 0.3); /* Cyan glow on hover */
+    opacity: 1;
+  }
+  
+  .project_card:hover::before {
+    opacity: 1; /* Reveals gradient on hover */
+  }
+  
+  .project_card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px; /* Matches card radius */
+    transition: transform 0.3s ease; /* Subtle zoom on hover */
+  }
+  
+  .project_card:hover img {
+    transform: scale(1.05); /* Slight zoom for engagement */
+  }
+  
+  .project_card h4 {
+    margin: 15px 0 10px 0; /* More breathing room */
+    font-size: 22px;
+    color: #0ef; /* Cyan for vibrancy */
+    font-weight: bold; /* Bolder for impact */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for readability */
+  }
+  
+  .project_card p {
+    font-size: 14px;
+    line-height: 1.5; /* Better readability */
+    padding: 0 10px;
+    color: rgba(255, 255, 255, 0.8); /* Slightly faded for hierarchy */
+    flex-grow: 1; /* Allows p to expand and push button to bottom */
+  }
+  
+  .project_card button {
+    width: 160px; /* Wider for better click target */
+    height: 40px;
+    margin-top: 15px; /* Space from text */
+    border: none;
+    border-radius: 25px; /* More pill-shaped */
+    background-color: #0ef;
+    color: #000; /* Dark text for contrast */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth button hover */
+    text-align: center; /* Centers text (replaces invalid align-items) */
+  }
+  
+  .project_card button:hover {
+    background-color: #00ccff; /* Lighter cyan on hover */
+    transform: translateY(-2px); /* Micro-lift */
+    box-shadow: 0 4px 12px rgba(0, 238, 255, 0.4);
+  }
+  
+  /* Staggered animation keyframes (from your previous setup) */
+  @keyframes slideTop {
+    from {
+      opacity: 0;
+      transform: translateY(30px); /* Slides up from below (positive Y for entrance) */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* On top of everything */
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards; /* Fade in */
+    backdrop-filter: blur(5px); /* Subtle blur behind (optional) */
+  }
+  
+  .modal-content {
+    background-color: rgba(255, 255, 255, 0.1); /* Matches card theme */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%; /* Responsive */
+    max-height: 90vh;
+    overflow-y: auto; /* Scroll if too tall */
+    position: relative;
+    color: white;
+    text-align: center;
+    animation: slideUp 0.3s ease forwards 0.1s both; /* Slide up after fade */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #0ef;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-close:hover {
+    background-color: rgba(0, 238, 255, 0.2);
+  }
+  
+  .modal-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content h3 {
+    color: #0ef;
+    font-size: 28px;
+    margin: 10px 0 15px 0;
+    font-weight: bold;
+  }
+  
+  .modal-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .modal-section {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .modal-section h4 {
+    color: #0ef;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .tech-list, .features-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .tech-list li, .features-list li {
+    background-color: rgba(0, 238, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid rgba(0, 238, 255, 0.3);
+  }
+  
+  .modal-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .modal-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0ef;
+    color: #000;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .modal-link:hover {
+    background-color: #00ccff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 238, 255, 0.4);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Responsive Modal */
+  @media (max-width: 768px) {
+    .modal-content {
+      padding: 20px;
+      margin: 20px;
+      width: calc(100% - 40px);
+    }
+    
+    .modal-img {
+      max-height: 150px;
+    }
+    
+    .modal-content h3 {
+      font-size: 24px;
+    }
+    
+    .tech-list, .features-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

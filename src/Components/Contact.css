@@ -1,0 +1,135 @@
+/* Contact Container */
+.contact {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    margin: 80px auto;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(14, 239, 255, 0.1);
+    animation: fadeIn 1s ease forwards;
+  }
+  
+  /* Heading */
+  .contact h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0ef;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+  }
+  
+  /* Input Fields */
+  .input {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 93%;
+  }
+  
+  .input label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  .input input,
+  .input textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 2px solid rgba(14, 239, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input input:focus,
+  .input textarea:focus {
+    border-color: #0ef;
+    box-shadow: 0 0 10px #0ef;
+  }
+  
+  .input textarea {
+    height: 120px;
+    resize: none;
+  }
+  
+  /* Send Button */
+  button {
+    background: linear-gradient(135deg, #0ef, #0ff 60%);
+    border: none;
+    border-radius: 30px;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #0ef, #00aaff);
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px #0ef, 0 0 40px #0ef;
+  }
+  
+  /* Social Icons */
+  .icons {
+    margin-top: 25px;
+  }
+  
+  .icons a {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #0ef;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #0ef;
+    margin: 0 12px;
+    opacity: 0;    
+    animation: slideTop 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+  }
+  
+  .icons a:hover {
+    background: #0ef;
+    color: #111;
+    box-shadow: 0 0 20px #0ef, 0 0 40px #0ef;
+    transform: scale(1.1);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideTop {
+    0%{
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
