@@ -22,13 +22,13 @@ export default function Contact() {
       return;
     }
 
-    const phoneNumber = "919076437341"; // replace with your WhatsApp number (with country code)
+    const phoneNumber = "919076437341"; 
     const text = `Hello, I am ${formData.name}. My email is ${formData.email}. Message: ${formData.message}`;
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       text
     )}`;
 
-    window.open(whatsappURL, "_blank"); // opens WhatsApp with prefilled text
+    window.open(whatsappURL, "_blank"); 
 
     console.log("Form Submitted:", formData);
 
