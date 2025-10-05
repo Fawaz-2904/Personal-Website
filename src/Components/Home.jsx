@@ -21,7 +21,7 @@ export default function Home() {
             </div>
 
             <div class="home-img">
-                <img src="/src/Components/Fawaz.png" alt=""></img>
+                <img src="/images/Fawaz.jpg" alt=""></img>
             </div>
         </div>
         </>
