@@ -35,7 +35,7 @@ export default function Projects() {
       fullDesc: "Functionality Description: The Hotel Management System is an In-house project which is an efficient application for hotel reception operations. It includes a Registration page for new users and a Login page for existing users. The Customer Details page allows for managing customer information with options to Save, Update, Reset, and Delete records. The Room Details page facilitates room assignments, Check-in and Checkout management, and room searches. Additionally, it features a page for reassigning vacated rooms and a Report Section for users to communicate functionality issues to the backend team, enhancing overall operational efficiency. Roles and Responsibilities: I independently developed the entire frontend and backend of the Hotel Management System from the ground up. This involved creating MySQL database tables to securely store data and implementing backend coding to connect user forms to the database effectively. Additionally, I prepared a comprehensive project report in IEEE format, detailing the project specifications and outcomes, which I presented at my college. This experience enhanced my technical skills and provided valuable insights into full-stack development and project documentation.",
       alt: "Hotel Management System Screenshot",
       tech: ["Python", "Django", "Tkinter GUI", "MySQL"],
-      features: ["Room deatils", "Customer details", "Check-In details","Check-Out details"],
+      features: ["Login & Logout", "Room deatils", "Customer details", "Check-In details","Check-Out details"],
       github: "https://github.com/Fawaz-2904/Project-3-Fawaz-Shaikh.git",
     },
     {
@@ -46,7 +46,7 @@ export default function Projects() {
       fullDesc: "The Hotel Booking System is a web-based project designed to simplify the process of booking rooms for hotels that are not yet technologically or digitally established in the market. Many small and mid-sized hotels still rely on manual methods for reservations, which can lead to errors, double bookings, and inefficiencies. This project provides a user-friendly solution that automates the booking process, reduces administrative workload, and enhances customer satisfaction. Guests can easily view available rooms, check details such as pricing and amenities, and confirm reservations online, eliminating the need for phone calls or physical visits. From a technical perspective, this system is built using HTML, CSS, and JavaScript. HTML (HyperText Markup Language) forms the backbone of the project, structuring the content and layout of the booking interface. CSS (Cascading Style Sheets) is used to style the application, making it visually appealing with a responsive design that adapts across devices such as desktops, tablets, and smartphones. JavaScript adds interactivity and dynamic functionality, including form validation, date selection, availability checks, and confirmation pop-ups. Together, these technologies ensure a smooth and seamless user experience.",
       alt: "Hotel Booking System Screenshot",
       tech: ["HTML/CSS", "Javascript"],
-      features: ["Check-In details form", "Hotels Page", "About", "Contact"],
+      features: ["Login & Logout", "Check-In details form", "Hotels Page", "About", "Contact"],
       github: "https://github.com/yourusername/zomato-clone-v3",
     },
   ];
